@@ -4,25 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4840fd4c-6528-4458-bb6f-1edf98a0886f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/config.template.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/daca.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/goToPost.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/selectors.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/install.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/credencials.template.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/goToDraw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uri_s.json" beforeDir="false" />
+    <list default="true" id="4840fd4c-6528-4458-bb6f-1edf98a0886f" name="Changes" comment="insta-bot: updated .gitignore">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.template.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.template.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +23,19 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -94,8 +91,23 @@
       <workItem from="1669917566076" duration="579000" />
       <workItem from="1669919114512" duration="3454000" />
       <workItem from="1669922618974" duration="6120000" />
-      <workItem from="1669929218141" duration="1247000" />
+      <workItem from="1669929218141" duration="1940000" />
     </task>
+    <task id="LOCAL-00001" summary="insta-bot: v1">
+      <created>1669930563692</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669930563693</updated>
+    </task>
+    <task id="LOCAL-00002" summary="insta-bot: updated .gitignore">
+      <created>1669930869316</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669930869316</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,5 +123,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="insta-bot: v1" />
+    <MESSAGE value="insta-bot: updated .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="insta-bot: updated .gitignore" />
   </component>
 </project>
