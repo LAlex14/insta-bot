@@ -1,5 +1,5 @@
 const fs = require('fs');
-const {file_name} = require("../config");
+const { file_name } = require("../config");
 
 const timeNow = () => new Date().toLocaleString('ro-Ro', {
     hour12: false,
@@ -14,7 +14,7 @@ const dateNow = () => new Date().toLocaleString('ro-Ro', {
     day: 'numeric'
 });
 
-const log_file = fs.createWriteStream(`./src/logs/${dateNow()}-log.txt`, {flags: 'a'});
+const log_file = fs.createWriteStream(`./src/logs/${dateNow()}-log.txt`, { flags: 'a' });
 
 module.exports = {
     clickOnElement: async (page, selector) => {

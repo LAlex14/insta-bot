@@ -32,7 +32,7 @@ async function extractUsernames(page, name) {
 
 module.exports = async (page) => {
     await clickOnElement(page, selectors.comm_text_area);
-    
+
     for (const name of firstNames) {
         await extractUsernames(page, name);
     }

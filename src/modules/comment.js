@@ -54,11 +54,11 @@ module.exports = async (pageData) => {
     for (let i = 1; i <= comm_total; i++) {
         await postComment();
         let awaitTime = i % comm_per_run ? comm_delay : comm_pause;
-        if(i === comm_total) {
+        if (i === comm_total) {
             awaitTime = 0;
             logMessage('All comments posted');
         }
-        if(awaitTime === comm_pause) {
+        if (awaitTime === comm_pause) {
             logMessage(`Pause for [${run_pause_min} minutes]\n`);
         }
         await sleep(awaitTime);
