@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const login = require('./modules/login.js');
 const comment = require('./modules/comment.js');
-const { photo_link, users, acc_pause_min, start_pause_min } = require("./config");
+const { photo_link, users, acc_pause_min, start_pause_min, action } = require("./config");
 const { sleep, logMessage } = require("./utils/utils");
 const getUsernames = require("./modules/usernames");
 require('events').EventEmitter.defaultMaxListeners = 50;
@@ -44,7 +44,7 @@ async function leaveComments() {
             continue;
         }
 
-        if(user.username !== users[0].username) {
+        if (user.username !== users[0].username) {
             logMessage(`<-- Waiting [${acc_pause_min} minutes] before next account -->\n`);
             await sleep(acc_pause_min * 60 * 1000);
         }
@@ -52,7 +52,7 @@ async function leaveComments() {
         const instance = await newInstance();
         await loginAndGoToPhotoPage(instance.page, user);
 
-        // await comment(instance.page);
+        await comment(instance.page);
 
         await instance.browser.close();
 
@@ -63,6 +63,15 @@ async function leaveComments() {
 }
 
 (async () => {
-    await leaveComments();
-    // await collectUsernames();
+    switch (action) {
+        case 'collect':
+            await leaveComments();
+            break;
+        case 'comment':
+            await leaveComments();
+            break;
+        default:
+            logMessage('Please provide a valid action');
+            process.exit();
+    }
 })();
