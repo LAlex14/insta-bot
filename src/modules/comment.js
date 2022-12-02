@@ -1,22 +1,19 @@
-const fs = require("fs");
 const selectors = require('../utils/selectors');
-
-const { file_name, comm_delay_sec, comm_per_run, run_pause_min, comm_total, tags_nr } = require('../config.js');
+const { comm_delay_sec, comm_per_run, run_pause_min, comm_total, tags_nr } = require('../config.js');
 const { clickOnElement, sleep, logMessage, getUsersArr } = require("../utils/utils");
+
+const users = getUsersArr();
 const comm_delay = comm_delay_sec * 1000;
 const comm_pause = run_pause_min * 60 * 1000;
-
-let page;
-let commIndex = 1;
+let page, commIndex = 1;
 
 async function createComment() {
-    const arr = getUsersArr();
-    const users = [];
+    const usersToTag = [];
     for (let i = 0; i < tags_nr; i++) {
-        const index = Math.floor(Math.random() * arr.length);
-        users.push(arr[index]);
+        const index = Math.floor(Math.random() * users.length);
+        usersToTag.push(users[index]);
     }
-    return '@' + users.join(' @');
+    return '@' + usersToTag.join(' @');
 }
 
 async function leaveComment(comment) {
@@ -53,13 +50,13 @@ module.exports = async (pageData) => {
 
     for (let i = 1; i <= comm_total; i++) {
         await postComment();
-        let awaitTime = i % comm_per_run ? comm_delay : comm_pause;
-        if (i === comm_total) {
-            awaitTime = 0;
-            logMessage('All comments posted');
-        }
-        if (awaitTime === comm_pause) {
+        const endedRun = i % comm_per_run === 0;
+        let awaitTime = i === comm_total ? 0 : endedRun ? comm_pause : comm_delay;
+        if (endedRun) {
             logMessage(`Pause for [${run_pause_min} minutes]\n`);
+        }
+        if (i === comm_total) {
+            logMessage('All comments posted');
         }
         await sleep(awaitTime);
     }

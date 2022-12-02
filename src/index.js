@@ -29,7 +29,7 @@ async function collectUsernames() {
     await getUsernames(instance.page);
     await instance.browser.close();
     logMessage(`<-- The collecting of usernames has ended -->`);
-    logMessage(`<-- Session ended for [@${users[0].username}] -->`);
+    process.exit();
 }
 
 async function leaveComments() {
@@ -44,23 +44,22 @@ async function leaveComments() {
             continue;
         }
 
+        if(user.username !== users[0].username) {
+            logMessage(`<-- Waiting [${acc_pause_min} minutes] before next account -->\n`);
+            await sleep(acc_pause_min * 60 * 1000);
+        }
+
         const instance = await newInstance();
         await loginAndGoToPhotoPage(instance.page, user);
 
-        await comment(instance.page);
+        // await comment(instance.page);
 
         await instance.browser.close();
 
         logMessage(`<-- Session ended for [@${user.username}] -->`);
-
-        if (user.username === users.at(-1).username) {
-            logMessage(`<-- The commenting has ended -->`);
-            break;
-        }
-
-        logMessage(`<-- Waiting [${acc_pause_min} minutes] before next account -->\n`);
-        await sleep(acc_pause_min * 60 * 1000);
     }
+    logMessage(`<-- All sessions ended -->`);
+    process.exit();
 }
 
 (async () => {

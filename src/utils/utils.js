@@ -22,9 +22,7 @@ module.exports = {
         await page.click(selector);
     },
 
-    sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    },
+    sleep: (ms) => new Promise(resolve => setTimeout(resolve, ms)),
 
     logMessage: (message) => {
         message = `${timeNow()} -> ${message}`;
