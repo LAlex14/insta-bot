@@ -19,7 +19,7 @@ async function newInstance() {
 
 async function loginAndGoToPhotoPage(page, loginData) {
     await login(page, loginData);
-    logMessage(`\n<-- Logged in as [@${loginData.username}] -->\n`);
+    logMessage(`<-- Logged in as [@${loginData.username}] -->\n`);
     await page.goto(photo_link);
 }
 
@@ -33,6 +33,8 @@ async function collectUsernames() {
 }
 
 async function leaveComments() {
+    let passedUsers = 0;
+
     if (start_pause_min) {
         logMessage(`Waiting [${start_pause_min} minutes] before starting...`);
         await sleep(start_pause_min * 60 * 1000);
@@ -44,7 +46,7 @@ async function leaveComments() {
             continue;
         }
 
-        if (user.username !== users[0].username) {
+        if (passedUsers) {
             logMessage(`<-- Waiting [${acc_pause_min} minutes] before next account -->\n`);
             await sleep(acc_pause_min * 60 * 1000);
         }
@@ -57,6 +59,7 @@ async function leaveComments() {
         await instance.browser.close();
 
         logMessage(`<-- Session ended for [@${user.username}] -->`);
+        passedUsers++;
     }
     logMessage(`<-- All sessions ended -->`);
     process.exit();

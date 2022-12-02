@@ -20,9 +20,7 @@ async function extractUsernames(page, name) {
     await page.keyboard.type(searchTag);
     await sleep(5000)
 
-    const tags = await page.$$('._acmu')
-
-    const values = await Promise.all(tags.map(async tag => await page.evaluate(el => el.textContent, tag)))
+    const values = await page.$$eval('._acmu', els => els.map(el => el.textContent));
 
     let data = getUsersArr();
     data = [...data, ...values];

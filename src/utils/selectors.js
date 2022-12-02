@@ -2,6 +2,7 @@ const commAreaClasses = 'x1i0vuye xvbhtw8 x76ihet xwmqs3e x112ta8 xxxdfa6 x5n08a
 const more_btn = 'div[class="xl5mz7h xhuyl8g"] a[class="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _a6hd"]'
 const comm_submit_btn = 'form[class="_aidk"] div div[role="button"]'
 const logout_btn = 'div[aria-labelledby="f11481ace84c99c fb0e88a9dbf538 f3dafd97de72b7c fba5bc7a09ede"]'
+const modalTitle = 'div[class="_a9-y"] h3[class="_aacl _aacq _aacw _aacx _aad6"]'
 
 module.exports = {
     username_input: 'input[name="username"]',
@@ -12,4 +13,5 @@ module.exports = {
     comm_submit_btn,
     more_btn,
     logout_btn,
+    modalTitle
 }
