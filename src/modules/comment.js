@@ -71,8 +71,8 @@ module.exports = async (pageData) => {
         const endedRun = i % comm_per_run === 0;
         let awaitTime = i === comm_total ? 0 : endedRun ? comm_pause : comm_delay;
 
-        if (endedRun) {
-            logMessage(`Pause for [${run_pause_min} minutes]\n`);
+        if (endedRun && awaitTime) {
+            logMessage(`Pause for [${run_pause_min} minutes]`);
         }
 
         if (i === comm_total) {
