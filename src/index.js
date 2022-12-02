@@ -41,7 +41,7 @@ async function leaveComments() {
 
     for (const user of users) {
         if (user.skip) {
-            logMessage(`Skipping [@${user.username}]`);
+            logMessage(`Skipping [@${user.username}]\n`);
             continue;
         }
 

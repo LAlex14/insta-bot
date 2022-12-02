@@ -31,8 +31,8 @@ module.exports = {
     sleep: (ms) => new Promise(resolve => setTimeout(resolve, ms)),
 
     logMessage: (message) => {
-        message = `${timeNow()} -> ${message}`;
-        log_file.write(message + '\n');
+        message = `\n${timeNow()} -> ${message}`;
+        log_file.write(message);
         console.log(message);
     },
 
