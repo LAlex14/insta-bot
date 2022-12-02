@@ -11,7 +11,7 @@
 module.exports = {
     login_url: "https://www.instagram.com/accounts/login",
     photo_link: "https://www.instagram.com/reel/xxxxxxx",
-    file_name: "./src/utils/users.json",
+    file_name: "./src/data/users.json",
     users: [
         {
             username: "username",

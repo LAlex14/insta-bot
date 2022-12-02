@@ -3,7 +3,7 @@ const { file_name } = require("../config");
 const { uniq } = require("lodash/array");
 const { clickOnElement, getUsersArr, logMessage, sleep } = require("../utils/utils");
 const selectors = require("../utils/selectors");
-const firstNames = require('../utils/firstNames.json');
+const firstNames = require('../data/firstNames.json');
 
 async function uniqNames() {
     const arr = await getUsersArr();
