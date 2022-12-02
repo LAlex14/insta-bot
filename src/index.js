@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const login = require('./modules/login.js');
 const comment = require('./modules/comment.js');
-const { photo_link, users, acc_pause_min, start_pause_min, action } = require("./config");
+const { photo_link, users, acc_pause_min, start_pause_min, action, repeat_times } = require("./config");
 const { sleep, logMessage } = require("./utils/utils");
 const getUsernames = require("./modules/usernames");
 require('events').EventEmitter.defaultMaxListeners = 50;
@@ -29,7 +29,6 @@ async function collectUsernames() {
     await getUsernames(instance.page);
     await instance.browser.close();
     logMessage(`<-- The collecting of usernames has ended -->`);
-    process.exit();
 }
 
 async function leaveComments() {
@@ -62,19 +61,20 @@ async function leaveComments() {
         passedUsers++;
     }
     logMessage(`<-- All sessions ended -->`);
-    process.exit();
 }
 
 (async () => {
-    switch (action) {
-        case 'collect':
-            await collectUsernames();
-            break;
-        case 'comment':
-            await leaveComments();
-            break;
-        default:
-            logMessage('Please provide a valid action');
-            process.exit();
+    for (let i = 0; i < repeat_times || 1; i++) {
+        switch (action) {
+            case 'collect':
+                await collectUsernames();
+                break;
+            case 'comment':
+                await leaveComments();
+                break;
+            default:
+                logMessage('Please provide a valid action');
+        }
     }
+    process.exit();
 })();
