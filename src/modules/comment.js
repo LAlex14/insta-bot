@@ -2,18 +2,12 @@ const fs = require("fs");
 const selectors = require('../utils/selectors');
 
 const { file_name, comm_delay_sec, comm_per_run, run_pause_min, comm_total, tags_nr } = require('../config.js');
-const { clickOnElement, sleep, logMessage } = require("../utils/utils");
+const { clickOnElement, sleep, logMessage, getUsersArr } = require("../utils/utils");
 const comm_delay = comm_delay_sec * 1000;
 const comm_pause = run_pause_min * 60 * 1000;
 
 let page;
 let commIndex = 1;
-
-function getUsersArr() {
-    let data = fs.readFileSync(file_name, 'utf8');
-    data = JSON.parse(data);
-    return data || [];
-}
 
 async function createComment() {
     const arr = getUsersArr();
