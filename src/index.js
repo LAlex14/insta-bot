@@ -65,7 +65,7 @@ async function leaveComments() {
 (async () => {
     switch (action) {
         case 'collect':
-            await leaveComments();
+            await collectUsernames();
             break;
         case 'comment':
             await leaveComments();
