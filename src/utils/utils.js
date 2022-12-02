@@ -14,6 +14,12 @@ const dateNow = () => new Date().toLocaleString('ro-Ro', {
     day: 'numeric'
 });
 
+const logsDir = './src/logs';
+
+if (!fs.existsSync(logsDir)){
+    fs.mkdirSync(logsDir);
+}
+
 const log_file = fs.createWriteStream(`./src/logs/${dateNow()}-log.txt`, { flags: 'a' });
 
 module.exports = {
